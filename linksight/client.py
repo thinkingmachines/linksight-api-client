@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
+# Import standard library
+import logging
+
 # Import modules
+import coloredlogs
 import requests
 
 from .common.settings import USER_AGENT
@@ -19,6 +23,8 @@ class Client(requests.Session):
             API token
         """
         super().__init__()
+        self.logger = logging.getLogger(__name__)
+        coloredlogs.install(level=logging.INFO, logger=self.logger)
         self.headers.update(
             {
                 'User-Agent': USER_AGENT,
@@ -38,6 +44,7 @@ class Client(requests.Session):
         -------
         dict
         """
+        self.logger.debug('Retrieving user information...')
         return User.retrieve(self, id)
 
     def create_dataset(self, file):
@@ -65,4 +72,5 @@ class Client(requests.Session):
         -------
         dict
         """
+        self.logger.debug('Creating dataset...')
         return Dataset.create(self, files={'file': file})
