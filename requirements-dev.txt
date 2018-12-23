@@ -4,9 +4,11 @@ attrs==18.2.0
 babel==2.6.0
 certifi==2018.11.29
 chardet==3.0.4
+coloredlogs==10.0
 docutils==0.14
 filelock==3.0.10
 flake8==3.5.0
+humanfriendly==4.17
 idna==2.8
 imagesize==1.1.0
 jinja2==2.10
