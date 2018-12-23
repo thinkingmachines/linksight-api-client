@@ -1,0 +1,10 @@
+-r requirements.in
+# Testing
+pytest==3.6.4
+flake8==3.5.0
+tox
+# Documentation
+Sphinx==1.7.6
+sphinx_bootstrap_theme
+sphinxcontrib-napoleon
+
