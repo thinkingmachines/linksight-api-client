@@ -4,7 +4,7 @@
 import requests
 
 from .common.settings import USER_AGENT
-from .resource.resources import Dataset, User
+from .resource import Dataset, User
 
 
 class Client(requests.Session):
