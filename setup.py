@@ -14,7 +14,7 @@ with open('requirements-dev.txt') as f:
 
 setup(
     name='linksight-api-client',
-    version='1.0.0',
+    version='0.1',
     description='Python API client for LinkSight',
     long_description=readme,
     long_description_content_type='text/markdown',
