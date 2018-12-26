@@ -50,7 +50,7 @@ class Dataset(Resource):
 
         Returns
         -------
-        dict
+        linksight.resource.resources.Match
             The API response containing the match
         """
         if not any([source_bgy_col, source_municity_col, source_prov_col]):
