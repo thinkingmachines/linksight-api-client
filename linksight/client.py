@@ -42,7 +42,7 @@ class Client(requests.Session):
 
         Returns
         -------
-        dict
+        linksight.resource.resources.User
         """
         self.logger.debug('Retrieving user information...')
         return User.retrieve(self, id)
@@ -70,7 +70,7 @@ class Client(requests.Session):
 
         Returns
         -------
-        dict
+        linksight.resource.resources.Dataset
         """
         self.logger.debug('Creating dataset...')
         return Dataset.create(self, files={'file': file})
