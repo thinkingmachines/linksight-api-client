@@ -6,6 +6,6 @@ flake8==3.5.0
 tox
 # Documentation
 Sphinx==1.7.6
-sphinx_bootstrap_theme
+sphinx_rtd_theme
 sphinxcontrib-napoleon
 
