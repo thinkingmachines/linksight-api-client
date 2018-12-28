@@ -10,6 +10,7 @@ Using the Python API requires an API token, which you can obtain from this
 *upper-rightmost* corner, click the "Need API Access?" button, then "Generate
 token":
 
+.. image:: ../assets/linksight_api_token_instructions.png
 
 Basic usage
 -----------
