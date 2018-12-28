@@ -28,6 +28,7 @@ province names. It works on Python 3.5.X and 3.6.X
    :maxdepth: 2
    :caption: API Documentation 
 
+   api/client
    api/common
    api/resources
 
