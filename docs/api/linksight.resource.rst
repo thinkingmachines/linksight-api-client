@@ -1,6 +1,3 @@
-linksight.resource package
-==========================
-
 linksight.resource.base module
 ------------------------------
 

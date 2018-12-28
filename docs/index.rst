@@ -1,8 +1,8 @@
 ====================
-Linksight API Client
+LinkSight API Client
 ====================
 
-This is the Python API Client for `Linksight
+This is the Python API Client for `LinkSight
 <https://linksight.thinkingmachin.es>`_. You can use this to programmatically
 standardize your messy and misspelled barangay, municipality, city, and
 province names. It works on Python 3.5.X and 3.6.X

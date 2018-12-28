@@ -1,8 +1,8 @@
 Common
 ======
 
-This includes various helper methods and constants that are common to the whole
-package
+.. automodule:: linksight.common
+   :members:
 
 .. toctree::
 
