@@ -1,0 +1,8 @@
+language: python
+python:
+    - 3.6
+    - 3.5
+install:
+    - sudo apt-get update
+    - pip install -U tox-travis
+script: tox
