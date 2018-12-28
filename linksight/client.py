@@ -1,5 +1,19 @@
 # -*- coding: utf-8 -*-
 
+"""
+The Client module serves as the entrypoint for all our interactions with the
+external LinkSight API. The main usage pattern requires us to instantiate a
+client, then use that to handle all requests to LinkSight.
+
+Most of the return values are in the form of a :mod:`linksight.resource`, which
+inherits a dictionary type.
+
+.. note::
+
+    Needless to say, interacting with the LinkSight API requires an internet
+    connection.
+"""
+
 # Import standard library
 import logging
 
@@ -43,6 +57,7 @@ class Client(requests.Session):
         Returns
         -------
         linksight.resource.resources.User
+            The user information retrieved from the API
         """
         self.logger.debug('Retrieving user information...')
         return User.retrieve(self, id)
@@ -71,6 +86,7 @@ class Client(requests.Session):
         Returns
         -------
         linksight.resource.resources.Dataset
+            The Dataset resource that can be used for matching
         """
         self.logger.debug('Creating dataset...')
         return Dataset.create(self, files={'file': file})

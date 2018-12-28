@@ -1,3 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Contains modules common to all methods in the API client"""
+"""
+This includes various helper methods and constants that are common to the whole
+package
+"""

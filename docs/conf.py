@@ -20,7 +20,7 @@ import linksight
 
 # -- Project information -----------------------------------------------------
 
-project = 'Linksight Python API Client'
+project = 'LinkSight API Client'
 copyright = '2018, Thinking Machines Data Science'
 author = linksight.__author__
 

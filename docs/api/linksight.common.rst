@@ -1,6 +1,3 @@
-linksight.common package
-========================
-
 linksight.common.settings module
 --------------------------------
 
