@@ -2,12 +2,6 @@
 
 """Contains various resources for API calls"""
 
-# Import standard library
-import logging
-
-# Import modules
-import coloredlogs
-
 from ..resource.base import Resource
 
 
