@@ -64,7 +64,7 @@ ls = linksight.Client(<API_TOKEN>)
 
 # Provide your dataset to the API
 with open('path/to/my/dataset.csv') as fp:
-    ds = ls.create_dataset(open('some.csv'))
+    ds = ls.create_dataset(fp)
 
 # Perform matching by specifying the column names
 # for the respective admin level
