@@ -2,7 +2,17 @@
 
 """Contains various resources for API calls"""
 
+# Import standard library
+import logging
+
+# Import from package
+import coloredlogs
+
 from ..resource.base import Resource
+
+# Create a logger
+logger = logging.getLogger(__name__)
+coloredlogs.install(level=logging.INFO, logger=logger)
 
 
 class User(Resource):
@@ -49,7 +59,7 @@ class Dataset(Resource):
         """
         if not any([source_bgy_col, source_municity_col, source_prov_col]):
             msg = 'At least one column must be defined!'
-            self.logger.error(msg)
+            logger.error(msg)
             raise ValueError(msg)
         url = self.create_instance_url('match')
         json_request = {

@@ -3,11 +3,15 @@
 # Import standard library
 import logging
 
-# Import modules
+# Import from package
 import coloredlogs
 
 from ..common.settings import ENDPOINT
 from ..common.utils import urljoin
+
+# Create a logger
+logger = logging.getLogger(__name__)
+coloredlogs.install(level=logging.INFO, logger=logger)
 
 
 class Resource(dict):
@@ -57,9 +61,6 @@ class Resource(dict):
         super().__init__(resp.json())
         self.client = client
         self.response = resp
-        # Create a logger
-        self.logger = logging.getLogger(__name__)
-        coloredlogs.install(level=logging.INFO, logger=self.logger)
 
     def create_instance_url(self, *args):
         """Create the instance url to pass the request onto
