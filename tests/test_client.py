@@ -6,12 +6,10 @@
 import glob
 
 # Import modules
-import responses
+import pytest
 
 # Import from package
 import linksight as ls
-from linksight.common.settings import ENDPOINT
-from linksight.common.utils import urljoin
 
 
 def test_client_get_user(mock_api, client, user_response):
@@ -28,3 +26,19 @@ def test_client_create_dataset(mock_api, client, dataset_response):
         resp = client.create_dataset(fp)
     assert isinstance(resp, ls.resource.resources.Dataset)
     assert resp.keys() == dataset_response.keys()
+
+
+@pytest.mark.webtest
+def test_client_get_user_web(client):
+    """Test if Client.get_user() returns the expected type"""
+    resp = client.get_user()
+    assert isinstance(resp, ls.resource.resources.User)
+
+
+@pytest.mark.webtest
+def test_client_create_dataset_web(client):
+    """Test if Client.create_dataset() returns the expected value and type"""
+    file = glob.glob('./**/test_areas.csv', recursive=True)
+    with open(file[0], 'r') as fp:
+        resp = client.create_dataset(fp)
+    assert isinstance(resp, ls.resource.resources.Dataset)
