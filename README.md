@@ -1,5 +1,9 @@
 ![linksight banner](/assets/linksight_api_client_banner.png)
 
+[![Documentation Status](https://readthedocs.org/projects/linksight-api-client/badge/?version=latest)](https://linksight-api-client.readthedocs.io/en/latest/?badge=latest)
+![Python Version](https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 This is the Python API Client for
 [LinkSight](https://linksight.thinkingmachin.es/). You can use this to
 programmatically standardize your messy and misspelled barangay, municipality,
