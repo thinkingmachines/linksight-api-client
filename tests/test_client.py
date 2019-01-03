@@ -1,42 +1,30 @@
 # -*- coding: utf-8 -*-
 
-"""Tests all methods on Client
-
-For tests involving mock-methods, we are mocking the methods of the Resource
-being consumed. For example, in get_user(), we are mocking the resource
-User.retrieve() then check if Client really returns the "retrieved" value.
-"""
+"""Tests all methods on Client"""
 
 # Import standard library
-from unittest.mock import patch
 import glob
 
+# Import modules
+import responses
+
 # Import from package
-import linksight
+import linksight as ls
+from linksight.common.settings import ENDPOINT
+from linksight.common.utils import urljoin
 
 
-@patch.object(linksight.client.User, 'retrieve')
-def test_client_get_user_return_value(mock_user_retrieve, client):
-    """Test if Client.get_user() returns the expected value"""
-    # Mock return value
-    user_info = {
-        'username': 'mock-data',
-        'email': 'email@mock.org',
-        'first_name': 'mock',
-        'last_name': 'data',
-    }
-    # Test proper
-    mock_user_retrieve.return_value = user_info
-    assert mock_user_retrieve() == client.get_user()
+def test_client_get_user(mock_api, client, user_response):
+    """Test if Client.get_user() returns the expected value and type"""
+    resp = client.get_user()
+    assert isinstance(resp, ls.resource.resources.User)
+    assert resp.keys() == user_response.keys()
 
 
-@patch.object(linksight.client.Dataset, 'create')
-def test_client_create_dataset_return_value(mock_ds_create, client):
-    """Test if Client.create_dataset() returns the expected value"""
-    # Mock return value
-    dataset = {'file': 'gs://mock-data/mock-output.csv'}
-    mock_ds_create.return_value = dataset
-    # Test proper
-    test_data = glob.glob('./**/data/test_areas.csv', recursive=True)
-    with open(test_data[0], 'r') as f:
-        assert mock_ds_create() == client.create_dataset(f)
+def test_client_create_dataset(mock_api, client, dataset_response):
+    """Test if Client.create_dataset() returns the expected value and type"""
+    file = glob.glob('./**/test_areas.csv', recursive=True)
+    with open(file[0], 'r') as fp:
+        resp = client.create_dataset(fp)
+    assert isinstance(resp, ls.resource.resources.Dataset)
+    assert resp.keys() == dataset_response.keys()
