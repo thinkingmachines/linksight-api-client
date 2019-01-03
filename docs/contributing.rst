@@ -122,6 +122,7 @@ you can add pre-commit hooks for both flake8 and black to make all formatting ea
 
 7. Submit a pull request through the GitHub website.
 
+
 Contributor Guidelines
 ----------------------
 
@@ -142,3 +143,30 @@ Coding Standards
 
 * We use PEP8 as our coding standard
 * In addition, we use `black <https://github.com/ambv/black>`_ as our code formatter
+
+
+Running the tests
+~~~~~~~~~~~~~~~~~
+
+We use `pytest <https://docs.pytest.org/en/latest/>`_ for testing. There
+are three sets of tests in the API Client:
+
+- **Regular Tests**: invokes a mocked API and can be run offline
+- **Web Tests** (`web`): hits the external server and requires an API token.
+- **Contract Tests** (`contract`): checks for consistency of mocked data to live data. 
+
+All contract tests are web tests. It is recommended that external developers
+write both regular and web tests, but locally do their checks on regular tests.
+Web tests should only be handled by a continuous integration service (via a
+testing account), unless you want to use your own API token.
+
+
+.. code-block:: shell
+   # In project root
+   pytest -m "not webtest" -v
+
+Lastly, to run all tests:
+
+.. code-block:: shell
+   # In project root
+   pytest -v
