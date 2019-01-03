@@ -6,12 +6,14 @@ import os
 # Import modules
 import pytest
 import responses
+from dotenv import load_dotenv
 
 # Import from package
 import linksight
 from linksight.common.settings import ENDPOINT
 from linksight.common.utils import urljoin
 
+load_dotenv()
 API_TOKEN = os.getenv('API_TOKEN')
 
 
