@@ -37,8 +37,9 @@ matching, simply follow these steps:
    ls = linksight.Client(<API_TOKEN>)
 
    # Provide your dataset to the API
+   # You can also pass a DataFrame, i.e. ls.create_dataset(df)
    with open('path/to/my/dataset.csv') as fp:
-       ds = ls.create_dataset(open('some.csv'))
+       ds = ls.create_dataset(fp)
 
    # Perform matching by specifying the column names
    # for the respective admin level
@@ -48,5 +49,5 @@ matching, simply follow these steps:
        source_prov_col='Province',
    )
 
-   # Transform the matched dataset to a pandas DataFrame
-   df = pd.read_csv(match['matched_dataset']['file'])
+   # Get the matched dataset as a DataFrame
+   match.df
