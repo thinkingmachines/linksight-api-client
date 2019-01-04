@@ -16,10 +16,12 @@ inherits a dictionary type.
 
 # Import standard library
 import logging
+import tempfile
 
 # Import modules
 import coloredlogs
 import requests
+import pandas as pd
 
 from .common.settings import USER_AGENT
 from .resource import Dataset, User
@@ -62,7 +64,7 @@ class Client(requests.Session):
         self.logger.debug('Retrieving user information...')
         return User.retrieve(self, id)
 
-    def create_dataset(self, file):
+    def create_dataset(self, data):
         """Create a dataset from a given file
 
         In order to create a dataset, simply create a context
@@ -80,8 +82,8 @@ class Client(requests.Session):
 
         Parameters
         ----------
-        file : _io.TextIOWrapper
-            A file handler
+        data : _io.TextIOWrapper or pandas.DataFrame
+            A file handler or a pandas DataFrame
 
         Returns
         -------
@@ -89,4 +91,13 @@ class Client(requests.Session):
             The Dataset resource that can be used for matching
         """
         self.logger.debug('Creating dataset...')
-        return Dataset.create(self, files={'file': file})
+        if isinstance(data, pd.DataFrame):
+            self.logger.debug('Detected DataFrame, generating tempfile...')
+            with tempfile.NamedTemporaryFile(delete=False) as temp:
+                filename = '{}.csv'.format(temp.name)  # tempfile is csv
+                data.to_csv(filename, index=False)
+                with open(filename) as fp:
+                    dataset = Dataset.create(self, files={'file': fp})
+        else:
+            dataset = Dataset.create(self, files={'file': data})
+        return dataset
