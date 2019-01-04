@@ -22,6 +22,15 @@ def test_dataset_match(mock_api, client, match_response):
     assert resp.keys() == match_response.keys()
 
 
+def test_dataset_match_invalid_columns(mock_api_server_error, client):
+    """Test if ValueError is raised given invalid column names (500)"""
+    file = glob.glob('./**/test_areas.csv', recursive=True)
+    with open(file[0], 'r') as fp:
+        ds = client.create_dataset(fp)
+    with pytest.raises(ValueError):
+        ds.match(source_prov_col='Provence')  # Should be `Province`
+
+
 @pytest.mark.webtest
 def test_dataset_match_web(client):
     """Test if Dataset.match() returns the expected type"""
@@ -30,3 +39,13 @@ def test_dataset_match_web(client):
         ds = client.create_dataset(fp)
     resp = ds.match(source_prov_col='Province')
     assert isinstance(resp, ls.resource.resources.Match)
+
+
+@pytest.mark.webtest
+def test_dataset_match_invalid_columns(client):
+    """Test if ValueError is raised given invalid column names (500)"""
+    file = glob.glob('./**/test_areas.csv', recursive=True)
+    with open(file[0], 'r') as fp:
+        ds = client.create_dataset(fp)
+    with pytest.raises(ValueError):
+        ds.match(source_prov_col='Provence')  # Should be `Province`

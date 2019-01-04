@@ -77,10 +77,27 @@ def mock_api(user_response, dataset_response, match_response):
     match_endpt = urljoin(
         ENDPOINT, 'datasets', dataset_response['id'], 'match'
     )
-    # Set assert_all_requests_are_fired=False so that we can add
-    # multiples responses w/o the need to request them in one test
     with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
         rsps.add(responses.GET, url=user_endpt, json=user_response)
         rsps.add(responses.POST, url=dataset_endpt, json=dataset_response)
         rsps.add(responses.POST, url=match_endpt, json=match_response)
+        yield rsps
+
+
+@pytest.fixture
+def mock_api_server_error(dataset_response):
+    """Return a mocked external API with 500 response"""
+    # Manage endpoints
+    dataset_endpt = urljoin(ENDPOINT, 'datasets')
+    match_endpt = urljoin(
+        ENDPOINT, 'datasets', dataset_response['id'], 'match'
+    )
+    with responses.RequestsMock(assert_all_requests_are_fired=False) as rsps:
+        rsps.add(responses.POST, url=dataset_endpt, json=dataset_response)
+        rsps.add(
+            responses.POST,
+            url=match_endpt,
+            status=500,
+            json={'error': 'Server Error (500)'},
+        )
         yield rsps
