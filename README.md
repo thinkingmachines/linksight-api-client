@@ -67,6 +67,7 @@ API_TOKEN = <API_TOKEN>
 ls = linksight.Client(<API_TOKEN>)
 
 # Provide your dataset to the API
+# You can also pass a DataFrame, i.e. ls.create_dataset(df)
 with open('path/to/my/dataset.csv') as fp:
     ds = ls.create_dataset(fp)
 
@@ -78,8 +79,8 @@ match = ds.match(
     source_prov_col='Province',
 )
 
-# Transform the matched dataset to a pandas DataFrame
-df = pd.read_csv(match['matched_dataset']['file'])
+# Get the matched dataset as a DataFrame
+match.df
 ```
 
 ## Contributing
