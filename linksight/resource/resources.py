@@ -69,4 +69,8 @@ class Dataset(Resource):
             'export': export,
         }
         resp = self.client.request('post', url, json=json_request)
+        if resp.status_code == 500:
+            msg = 'Request error [500] Maybe an invalid column name?'
+            logger.error(msg)
+            raise ValueError(msg)
         return Match(self.client, resp)
