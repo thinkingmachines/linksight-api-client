@@ -7,6 +7,7 @@ import logging
 
 # Import from package
 import coloredlogs
+import pandas as pd
 
 from ..resource.base import Resource
 
@@ -25,6 +26,10 @@ class Match(Resource):
     """Resource for handling resulting dataset matches"""
 
     url = 'matches'
+
+    def __init__(self, client, resp):
+        super().__init__(client, resp)
+        self.df = pd.read_csv(self['matched_dataset']['file'])
 
 
 class Dataset(Resource):
