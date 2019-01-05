@@ -162,11 +162,13 @@ testing account), unless you want to use your own API token.
 
 
 .. code-block:: shell
+
    # In project root
    pytest -m "not webtest" -v
 
 Lastly, to run all tests:
 
 .. code-block:: shell
+
    # In project root
    pytest -v
