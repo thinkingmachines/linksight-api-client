@@ -1,5 +1,6 @@
 ![linksight banner](/assets/linksight_api_client_banner.png)
 
+[![Build Status](https://travis-ci.org/thinkingmachines/linksight-api-client.svg?branch=master)](https://travis-ci.org/thinkingmachines/linksight-api-client)
 [![Documentation Status](https://readthedocs.org/projects/linksight-api-client/badge/?version=latest)](https://linksight-api-client.readthedocs.io/en/latest/?badge=latest)
 ![Python Version](https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)

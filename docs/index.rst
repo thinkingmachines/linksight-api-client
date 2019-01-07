@@ -2,6 +2,10 @@
 LinkSight API Client
 ====================
 
+.. image:: https://travis-ci.org/thinkingmachines/linksight-api-client.svg?branch=master
+   :target: https://travis-ci.org/thinkingmachines/linksight-api-client
+   :alt: Build Status
+
 .. image:: https://readthedocs.org/projects/linksight-api-client/badge/?version=latest
    :target: https://linksight-api-client.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
