@@ -73,6 +73,5 @@ target/
 
 # Local files
 .DS_Store
-data/
 .envrc
 .env
