@@ -48,11 +48,11 @@ class Dataset(Resource):
 
         Parameters
         ----------
-        source_bgy_col : string
+        source_bgy_col : str
             Column name for the barangays
-        source_municity_col : string
+        source_municity_col : str
             Column name for the municipality
-        source_prov_col : string
+        source_prov_col : str
             Column name for the province
         export : bool
             Export the resulting match (default is True)

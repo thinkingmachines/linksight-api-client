@@ -35,7 +35,7 @@ class Client(requests.Session):
 
         Parameters
         ----------
-        token : string
+        token : str
             API token
         """
         super().__init__()
