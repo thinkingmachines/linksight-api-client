@@ -4,18 +4,18 @@
 
 
 def urljoin(*args):
-    """Join a set of strings for URL creation
+    """Join a set of strs for URL creation
 
     This method is commonly used by appending a URL to the `ENDPOINT`
 
     Parameters
     ----------
-    string
+    str
         URL names to join
 
     Returns
     -------
-    string
+    str
         The joined URL
     """
     return '/'.join(map(lambda a: a.strip('/'), args))

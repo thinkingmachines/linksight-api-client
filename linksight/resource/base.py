@@ -44,7 +44,7 @@ class Resource(dict):
         ----------
         client : requests.Session
             An instance of the client
-        id : string
+        id : str
             ID of the user
 
         Returns
@@ -67,11 +67,11 @@ class Resource(dict):
 
         Parameters
         ----------
-        args : strings
+        args : str
 
         Returns
         -------
-        string
+        str
             The instance url
         """
         return urljoin(ENDPOINT, self.url, self['id'], *args)
