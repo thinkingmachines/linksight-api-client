@@ -47,7 +47,7 @@ Write Documentation
 ~~~~~~~~~~~~~~~~~~~
 
 LinkSight could always use more documentation, whether as part of the
-official Cookiecutter docs, in docstrings, or even on the web in blog posts,
+official docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 If you want to review your changes on the documentation locally, you can do::
