@@ -29,7 +29,12 @@ class Match(Resource):
 
     def __init__(self, client, resp):
         super().__init__(client, resp)
-        self.df = pd.read_csv(self['matched_dataset']['file'])
+        try:
+            self.df = pd.read_csv(self['matched_dataset']['file'])
+        except KeyError:
+            msg = 'matched_dataset key is missing'
+            logger.warn(msg)
+            pass
 
 
 class Dataset(Resource):
