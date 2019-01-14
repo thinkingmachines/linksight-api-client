@@ -30,13 +30,14 @@ setup(
     zip_safe=False,
     keywords=['linksight', 'python client', 'geospatial'],
     classifiers=[
-        'Development Status :: 1 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Intended Audience :: Education',
         'Intended Audience :: Science/Research',
-        'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+        'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Topic :: Scientific/Engineering',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.5',
     ],
 )
