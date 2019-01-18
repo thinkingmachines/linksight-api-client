@@ -12,4 +12,4 @@ interaction with the LinkSight API. These constants include:
 
 VERSION = '0.1'
 USER_AGENT = 'linksight-api-client/{}'.format(VERSION)
-ENDPOINT = 'https://linksight-stg.thinkingmachin.es/api'
+ENDPOINT = 'https://linksight.thinkingmachin.es/api'
